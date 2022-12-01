@@ -48,15 +48,18 @@ Please follow [install.md](docs/install.md) for detailed installation steps.
 ```
 dataset
   ├── coco
-  | ├── annotations
-  | ├── train2014
-  | ├── val2014
+  | ├── annotations/instances_train2014.json  + instances_val2014.json
+  | ├── train2014/*.jpg
+  | ├── val2014/*.jpg
   | ├── logs
 ```
 2. Create a folder 'model' in the CDeCNet and put the pre-trained model on MS-Coco into this directory. The model file can be downloaded from the [drive](https://iiitaphyd-my.sharepoint.com/:u:/g/personal/madhav_agarwal_research_iiit_ac_in/EUUDgrZoY4ZApFOL7xiiCHMBbSP9ai0OZ-weQ94O2kBQ_A?e=dLFV6I)
 
 3. Set ```load_from= /path/of/pre-trained/model``` in [default_runtime.py](configs/_base_/default_runtime.py)
-4. To train a model on CDeC-Net, use the following commnand
+
+4. change the `class_file.txt` to your class.
+
+5. To train a model on CDeC-Net, use the following commnand
 ```
 python -u tools/train.py configs/dcn/db_cascade_mask_rcnn_x101_fpn_dconv_c3-c5_1x_coco.py --work-dir dataset/coco/logs/
 ```
